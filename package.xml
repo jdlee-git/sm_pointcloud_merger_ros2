@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>sm_pointcloud_merger_ros2</name>
+  <version>0.1.0</version>
+  <description>GPU‑accelerated multi‑LiDAR PointCloud2 merger for ROS 2 Jazzy</description>
+
+  <maintainer email="you@example.com">Your Name</maintainer>
+  <license>Apache-2.0</license>
+
+  <!-- Build tools -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Run‑time & build dependencies -->
+  <depend>rclcpp</depend>
+  <depend>sensor_msgs</depend>
+  <depend>pcl_conversions</depend>
+  <depend>pcl_ros</depend>
+
+  <!-- Export -->
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
