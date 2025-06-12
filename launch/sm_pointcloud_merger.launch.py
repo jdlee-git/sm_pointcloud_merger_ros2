@@ -1,23 +1,19 @@
 from launch import LaunchDescription
 from launch_ros.actions import Node
-import yaml, os
 
 def generate_launch_description():
-    config = {
-        'topics': [
-            '/lidar_front/points',
-            '/lidar_left/points',
-            '/lidar_right/points'
-        ],
-        'output_topic': '/merged_points'
+    params = {
+        'topics': ['/lidar_front/points', '/lidar_left/points', '/lidar_right/points'],
+        'output_topic': '/merged_points',
+        'output_frame_id': 'odom'   # 원하는 출력 프레임
     }
 
-    node = Node(
-        package='sm_pointcloud_merger_ros2',
-        executable='pointcloud_merger_node',
-        name='pointcloud_merger',
-        parameters=[config],
-        output='screen'
-    )
-
-    return LaunchDescription([node])
+    return LaunchDescription([
+        Node(
+            package='sm_pointcloud_merger_ros2',
+            executable='pointcloud_merger_node',
+            name='pointcloud_merger',
+            parameters=[params],
+            output='screen'
+        )
+    ])

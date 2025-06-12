@@ -119,5 +119,4 @@ void gpu_merge_pointclouds(
   }
   // 7. PCL → PointCloud2 메시지로 변환 및 헤더 복사
   pcl::toROSMsg(merged_host, output);
-  output.header = input_clouds.front()->header;
 }
